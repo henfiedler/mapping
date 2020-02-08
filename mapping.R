@@ -39,7 +39,7 @@ df <- Mailchimp %>%
 ## Converting data frame to sf-Format (geometry list)
 
 df <- st_as_sf(df, coords = c("lng", "lat"), 
-               crs = 4326, agr = "constant")
+               crs = 4326, agr = "constant") # sind die Angaben über crs und agr überhaupt notwendig?
 
 # Plotting with leaflet (clustering)
 
