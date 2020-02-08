@@ -21,7 +21,7 @@ rm(packages, p)
 ## German cities with lon/lat (source: https://simplemaps.com/data/de-cities)
 de <- read_csv("data/de.csv")
 
-## dataset with subscribers from mailchimp
+## dataset with subscribers from mailchimp (only available for admin)
 Mailchimp <- read_csv("data/Test.csv", col_names = FALSE)
 
 
@@ -45,5 +45,5 @@ df <- st_as_sf(df, coords = c("lng", "lat"),
 
 leaflet(df) %>%
   addTiles() %>%
-  addMarkers(clusterOptions = markerClusterOptions(), label = ~as.character(city)
-  )
+  addMarkers(clusterOptions = markerClusterOptions(),
+             label = ~as.character(city))
