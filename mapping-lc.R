@@ -20,8 +20,8 @@ regions <- tibble(name = c("Ruhrgebiet", "Rhein-Main"),
                   lat = c(51.5, 50.1),
                   lng = c(7.5, 8.7),
                   iso2 = c("DE", "DE"))
-#source: Ruhrgebiet: https://geohack.toolforge.org/geohack.php?pagename=Ruhr&params=51_30_N_7_30_E_region:DE_type:city
-       # Rhein-Main: https://geohack.toolforge.org/geohack.php?pagename=Frankfurt_Rhine-Main&params=50.1_N_8.7_E_scale:1000000_region:DE
+# source: Ruhrgebiet: https://geohack.toolforge.org/geohack.php?pagename=Ruhr&params=51_30_N_7_30_E_region:DE_type:city
+#         Rhein-Main: https://geohack.toolforge.org/geohack.php?pagename=Frankfurt_Rhine-Main&params=50.1_N_8.7_E_scale:1000000_region:DE
 
 # international cities with lon/lat (source: https://simplemaps.com/data/de-cities)
 cities <- read_csv("worldcities.csv") %>% # internationale Buchstabierung
@@ -68,6 +68,7 @@ correlaidxicon <- makeIcon(
   iconWidth = 30, iconHeight = 30,
   iconAnchorX = 30, iconAnchorY = 30
 )
+# source: https://stackoverflow.com/questions/31541077/custom-markers-in-leaflet/31746476
 
 # Plotting with leaflet (clustering)
 leaflet(df_aggr) %>%
