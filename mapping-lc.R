@@ -1,10 +1,10 @@
 # load packages
-library(readr)
 library(tidyverse)
 library(CoordinateCleaner)
+library(readr)
+library(rvest)
 library(sf)
 library(leaflet)
-library(rvest)
 
 ## Load geo data
 # centroids of countries from package "CoordinateCleaner"
@@ -32,7 +32,7 @@ cities <- read_csv("worldcities.csv") %>% # internationale Buchstabierung
 # binding to one dataframe
 geo <- rbind(countries, regions, cities)
 
-## crawling lc-chapters
+## crawling lc-chapters from CorrelAid-Website with package rvest
 # correlaid website
 correlaid <- read_html(
   "https://correlaid.org/"
@@ -58,10 +58,10 @@ df_sub <- df %>%
   filter(!is.na(lat) & !is.na(lng))
 # difficulty with local chapters like "Ruhrgebiet" or Rhine-Main"
 
-## Converting data frame to sf-Format (geometry list)
+## Converting data frame to sf-Format (geometry list) with package sf
 df_aggr <- st_as_sf(df_sub, coords = c("lng", "lat"))
 
-## Leaflet
+## Creating interactive map with package leaflet
 # creating a custom icon
 correlaidxicon <- makeIcon(
   iconUrl = "https://gblobscdn.gitbook.com/spaces%2F-MMQj6Rqry0D6V-FfMJP%2Favatar-1605792600232.png",
