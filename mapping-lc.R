@@ -2,10 +2,8 @@
 library(readr)
 library(tidyverse)
 library(CoordinateCleaner)
-library(leaflet)
 library(sf)
-library(snakecase)
-library(xml2)
+library(leaflet)
 library(rvest)
 
 ## Load geo data
